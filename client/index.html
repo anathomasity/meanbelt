@@ -1,0 +1,41 @@
+<!doctype html>
+
+<!-- 
+	Very important that we add this in our index.html. Without this ng-app
+	we won't be able to instantiate our angular application in our app.js file 
+-->
+<html ng-app = 'Myapp'>
+<head>
+	<title>New guy</title>
+
+
+    <script src="angular/angular.js"></script>
+    <script src="angular-route/angular-route.js"></script>
+    <script src="angular-messages/angular-messages.js"></script>
+
+
+    <script src = "app.js"></script>
+    <!-- controllers -->
+    <script src = "/controllers/indexController.js"></script>
+    <script src = "/controllers/newController.js"></script>
+<!--     <script src = "/controllers/editController.js"></script> -->
+
+	<!-- factories -->
+    <script src = "/factories/appointmentsFactory.js"></script>
+
+
+</head>
+<body>
+
+	<div class = 'container'>
+		<h1>Doctor's appointments</h1>
+		
+		<!-- 
+		this is where our partials will be loaded.
+		treat this index.html file like a template. Stuff that could go in here
+		is like a general navbar and footer. 
+		 -->
+		<div ng-view></div>
+	</div>
+</body>
+</html>

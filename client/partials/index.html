@@ -1,0 +1,25 @@
+<button ng-click='logout()'>Logout</button>
+
+
+<input type="text" ng-model="filter_name" placeholder="Filter...">
+
+	<table>
+
+    <tr>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Patient Name</th>
+      <th>Complain</th>
+    </tr>
+
+    <tr ng-repeat="ap in appointments | filter:filter_name">
+      <td>{{ ap.date | date:'yyyy-MM-dd' }}</td>
+      <td>{{ ap.time | date: 'mediumTime'}}</td>
+      <td>{{ ap.user_name }}</td>
+      <td>{{ ap.complain }}<button ng-if='ap.user_name == user_name' ng-click='destroyAppointment(ap)'>Cancel</button></td>
+    </tr>
+    <p ng-if='err' style="color:red;">{{err}}</p>
+
+  </table>
+
+<a href="#/new">Add a new appointment</a>

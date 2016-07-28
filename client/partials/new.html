@@ -1,0 +1,24 @@
+<h1>New appointment</h1>
+
+<form name='apForm'>
+	Date:<input type="date" name='date' ng-model='ap.date' required></input>
+	Time:<input type="time" name='time' ng-model='ap.time' min='08:00:00' max='17:00:00' required></input>
+	Complain: <input type="text" name='complain' ng-model='ap.complain' ng-minlength='10' required></input>
+	<input type="submit" value="Add Appointment" ng-click='addAppointment()' ></input>
+	<a href="#/">Cancel</a>
+</form>
+
+<p ng-if='err' style="color:red;">{{err}}</p>
+<p ng-if='erro' style="color:red;">{{erro}}</p>
+<p ng-if='error' style="color:red;">{{error}}</p>
+
+ <div ng-messages="apForm.date.$error" >
+     <p ng-message="required">Date is required.</p>
+ </div>
+ <div ng-messages="apForm.time.$error">
+     <p ng-message="required">time is required.</p>
+ </div>
+  <div ng-messages="apForm.complain.$error">
+     <p ng-message="required">Complain is required.</p>
+     <p ng-message="minlength">Min length is 10 characters.</p>
+ </div>
